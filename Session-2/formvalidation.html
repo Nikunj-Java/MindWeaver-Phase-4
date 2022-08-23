@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--css link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+
+    <div class="container">
+        <h1>Form Validation</h1>
+
+
+        
+        <form class="needs-validations" novalidate>
+            <div class="form-row">
+            
+            <!--FirstName-->
+            <div class="col-md-4 mb-3">
+                <label for="valid01">FirstName</label>
+                <input type="text" class="form-control" id="valid01" placeholder="First Name" required>
+            
+                    <!--custom validation-->
+                    <div class="invalid-feedback">
+                        FirstName can't be Empty
+                    </div>
+            
+            </div>
+
+            <!--LastName-->
+            <div class="col-md-4 mb-3">
+                <label for="valid02">LastName</label>
+                <input type="text" class="form-control" id="valid02" placeholder="Last Name" required>
+            
+                <!--custom validation-->
+                <div class="invalid-feedback">
+                    LastName can't be Empty
+                </div>
+            </div>
+
+            
+            <div class="col-md-4 mb-3">
+                <label for="valid03">UserName</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="InputGroupPrepend">@</span>
+                    </div>
+                    
+                <input type="text" class="form-control" id="valid02" placeholder="Last Name" required>
+            <!--custom validation-->
+            <div class="invalid-feedback">
+                UserName can't be Empty
+            </div>
+                </div>
+            </div>
+
+            </div>
+
+            <!--Second row-->
+            <div class="form-row">
+
+                <!--City-->
+                <div class="col-md-4 mb-3">
+                    <label for="valid04" >City</label>
+                    <input type="text" class="form-control" id="valid04" placeholder="Enter City" required>
+                <!--custom validation-->
+                <div class="invalid-feedback">
+                    City can't be Empty
+                </div>
+                </div>
+                <!--state-->
+                <div class="col-md-4 mb-3">
+                    <label for="valid05" >State</label>
+                    <input type="text" class="form-control" id="valid05" placeholder="Enter State" required>
+                
+                
+                <!--custom validation-->
+                <div class="invalid-feedback">
+                    State can't be Empty
+                </div>
+                </div>
+
+                <!--pincode-->
+                <div class="col-md-4 mb-3">
+                    <label for="valid06" >Pincode</label>
+                    <input type="text" class="form-control" id="valid06" placeholder="Enter Pincode" required>
+                
+                <!--custom validation-->
+                <div class="invalid-feedback">
+                    pincode can't be Empty
+                </div>
+                </div>
+
+
+            </div>
+
+            <!--third row-->
+            <div class="form-row">
+
+                <!--City-->
+                <div class="col-md-4 mb-3">
+                    <label for="disbaleinput" >I like to read some topics about</label>
+
+                    <fieldset disabled>
+                        <input type="text" class="form-control" id="disbaleinput" placeholder="Web Developement" required>
+                    </fieldset>
+                </div>
+                 
+
+                <!--find us-->
+                <div class="col-md-6 mb-3">
+
+                    <p>Where did you find us?</p>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"  value="l1" id="ch1"  name="location1">
+                        <label for="ch1" class="form-check-label">Facebook</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"  value="l2" id="ch2"  name="location2">
+                        <label for="ch2" class="form-check-label">Instagram</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"  value="l3" id="ch3"  name="location3">
+                        <label for="ch3" class="form-check-label">Twitter</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio"  value="l4" id="ch4"  name="location4">
+                        <label for="ch4" class="form-check-label">LinkedIn</label>
+                    </div>
+                     
+                </div>
+
+
+            </div>
+
+
+            <!--fourth row-->
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" value="" id="check" required>
+                        <label for="check" class="form-check-label" >Agree Terms and Conditions </label>
+
+                        <!--custom validation-->
+                    <div class="invalid-feedback">
+                        You must agree before submit
+                    </div>
+                   
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="btn btn-primary">Register</button>
+
+
+        </form>
+    </div>
+
+    <!--Form Validation javascript-->
+    <script>
+        (function(){
+            'use strict';
+            window.addEventListener('load',function(){
+                //catch form by class name
+                var form=document.getElementsByClassName("needs-validations");
+                //iterate with all form
+                var validation= Array.prototype.filter.call(form,function(form)
+                {
+                    form.addEventListener('submit',function()
+                        {
+                            if(form.checkValidity()==false)
+                            {
+                                event.preventDefault();
+                                event.stopPropagation();
+                            }
+                            form.classList.add('was-validated')
+                        },false)
+                           
+                })
+            },false)
+        })();
+
+    </script>
+
+    
+    <!--Bundle-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
