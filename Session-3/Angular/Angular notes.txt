@@ -80,5 +80,34 @@ to check the version
 >ng --version  OR (ng v)
 
 ************************************************************************************
-
+CREATE FIRST ANGULAR APPLICATION
 ************************************************************************************
+
+> ng new myapp (you can give any name)
+
+	it will ask you two questions
+	1. do you want to add angular routing ?: y
+	2. Choose CSS:CSS
+once the app is prepared you need to change the directory or move to the directory of app name
+
+>cd myapp
+
+
+to start your application
+
+>ng serve
+
+
+once the app started goto the browser and open localhost:4200 and hit enter 
+
+
+if you want to change the layout of app
+
+goto> src>app>app.component.html file  and edit the code wathever you want
+
+
+
+
+<h1> My Angular App</h1>
+
+save it it will be automatically updated in browser, that you can check the same
