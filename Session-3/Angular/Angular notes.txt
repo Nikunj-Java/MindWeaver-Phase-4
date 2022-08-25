@@ -1,0 +1,27 @@
+install node js from link:
+https://nodejs.org/en/download/
+----------------------------------------------
+
+STEP: 1  CHEKING THE VERSION OF NODE AND NPM
+----------------------------------------------
+
+1. TO CHECK THE VERSIO OF NODE
+> open cmd>node -v
+	output: v16.14.2
+2. NPM manager - Node Package Manager
+----provide the bundles of packages which we can donwload  directly using cmd
+----ex.  angular,react,view Js, Typescript, Bootstarp
+----NPM installed automatically whenever you install Node JS in your system
+----to check the version of NPM
+
+> npm -v
+	output:8.5.0
+------------------------------------------------
+STEP: 2 INSTALLING TYPESCRIPT USING NPM
+------------------------------------------------
+
+>npm install typescript -g
+
+ to check the version
+>tsc -v
+	output: Version 4.7.4
