@@ -111,3 +111,17 @@ goto> src>app>app.component.html file  and edit the code wathever you want
 <h1> My Angular App</h1>
 
 save it it will be automatically updated in browser, that you can check the same
+
+
+to design a css 
+goto> src>app>app.component.css
+
+
+h1{
+    background-color: yellowgreen;
+}
+
+
+save it and check the output
+
+
