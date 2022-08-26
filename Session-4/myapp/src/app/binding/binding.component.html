@@ -39,4 +39,16 @@
                 <td [class.inStock1]="true">{{p.ratings}}</td>
             </tr>
     </tbody>
+
 </table>
+
+
+
+<div class="container">
+    <button class="btn btn-primary" (click)="show()">Show Div</button>
+
+    <div *ngIf="flag" style="background-color: yellowgreen;">
+        This is My Div and You have Succesfully implemented Event Binding
+    </div>
+
+</div>

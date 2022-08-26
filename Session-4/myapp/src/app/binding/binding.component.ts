@@ -23,4 +23,10 @@ export class BindingComponent implements OnInit {
 ]
 
 we:number=700;
+
+flag=false;
+
+show(){
+  this.flag=!this.flag;
+}
 }
