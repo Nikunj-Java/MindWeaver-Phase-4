@@ -1,0 +1,47 @@
+***************************************************************************************************************
+CLASS BINDINGS
+***************************************************************************************************************
+
+- App is already containing binding component
+
+- lets prepare one class names as inStock in binding.component.css
+
+.inStock{
+    background-color: orange;
+    color: white;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+}
+
+
+
+goto> binding.component.html file and bind the class using below tag
+
+<td [class.inStock]="true">{{p.name}}</td>
+
+
+similarly you can prepare many classes and bind them as mentioned above
+
+
+
+***************************************************************************************************************
+
+STYLE BINDING
+
+***************************************************************************************************************
+
+
+prepare one number with name say 'we' in binding.component.ts file
+
+we:number=700;
+
+
+now bind the data in binding.component.html
+
+
+<td [style.font-weight]="we">{{p.price}}</td>
+
+
+save it and check the output
+

@@ -20,8 +20,7 @@ export class BindingComponent implements OnInit {
   {name:"eraser",price:"5.5",available:"31-08-2022",ratings:4.2},
   {name:"scale",price:"3.3",available:"01-09-2022",ratings:4.1},
   {name:"books",price:"10",available:"05-09-2022",ratings:4.9}
+]
 
-
-  ]
-
+we:number=700;
 }

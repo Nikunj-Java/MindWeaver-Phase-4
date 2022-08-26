@@ -33,10 +33,10 @@
             <!--NgDirectives eg: *ngFor-->
             <tr *ngFor="let p of products">
 
-                <td>{{p.name}}</td>
-                <td>{{p.price}}</td>
+                <td [class.inStock]="true">{{p.name}}</td>
+                <td [style.font-weight]="we">{{p.price}}</td>
                 <td>{{p.available}}</td>
-                <td>{{p.ratings}}</td>
+                <td [class.inStock1]="true">{{p.ratings}}</td>
             </tr>
     </tbody>
 </table>
