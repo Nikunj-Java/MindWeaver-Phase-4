@@ -159,6 +159,80 @@ app.component.html
 Save it and check the output
 
 
+***************************************************************************************************************STEP: 6 CLASS BINDING
+***************************************************************************************************************
+
+
+--prepare one array of products in binding.component.ts
+
+products=[{name:"pencile",price:"8.3",available:"26-08-2022",ratings:4.8},
+  {name:"pen",price:"8.8",available:"27-08-2022",ratings:5.0},
+  {name:"eraser",price:"5.5",available:"31-08-2022",ratings:4.2},
+  {name:"scale",price:"3.3",available:"01-09-2022",ratings:4.1},
+  {name:"books",price:"10",available:"05-09-2022",ratings:4.9}
+]
+
+goto> binding.component.html toprint array using table along with ngDirective
+
+
+
+binding.component.html
+----------------------
+
+<h3>Print JSON Array</h3>
+
+<br>
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>PRICE</th>
+            <th>AVAILABLE</th>
+            <th>RATINGS</th>
+        </tr>
+    </thead>
+    <tbody>
+            <!--NgDirectives eg: *ngFor-->
+            <tr *ngFor="let p of products">
+
+                <td>{{p.name}}</td>
+                <td>{{p.price}}</td>
+                <td>{{p.available}}</td>
+                <td>{{p.ratings}}</td>
+            </tr>
+    </tbody>
+</table>
+
+
+[* Note : to implement nootstarp in angular app , include css and script file to index.html file as below]
+
+
+index.html
+----------------
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Myapp</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+  <app-root></app-root>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+ save it and check the output
+
 
 
 
