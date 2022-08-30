@@ -1,0 +1,19 @@
+1. get Slider from :
+--------------------------
+https://getbootstrap.com/docs/4.0/components/carousel/
+
+2. Get dummy Json Data 
+-------------------------
+https://www.freakyjolly.com/angular-service-example-crud-operations/
+
+command to install json server
+-------------------------------
+> npm install -g json-server
+
+command to start json server:
+-------------------------------
+> json-server --watch ./src/app/data.json
+
+3. Kitchen story project
+-------------------------
+https://github.com/Nikunj-Java/backupsessions/tree/main/kitchenstory
