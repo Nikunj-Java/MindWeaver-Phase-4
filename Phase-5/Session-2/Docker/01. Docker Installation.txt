@@ -1,0 +1,104 @@
+**************************************************************************
+STEP: 1  AWS UBUNTU INSTANCE
+**************************************************************************
+link to download moba x-term: https://mobaxterm.mobatek.net/
+
+
+**************************************************************************
+1. CONNECT LLOCALMACHINE TO AWS EC2 INSTANCE
+**************************************************************************
+
+1. Goto> LAB
+2. Prpare AWS Instance with Required Configurations> Download The Key Value pair and save it to some desire directory
+
+	1. prepare Ubuntuserver 22.04 LTS(HVM) SSD volumetype instance
+	2. customprotocol for port : 8080
+
+3. to  connect AWS EC2 Instance with your local machine you need todownload Moba x-term
+4. link: https://mobaxterm.mobatek.net/
+
+5. open moba x-term  and move to  the root directory where you have saved  .pem file
+
+
+6.  goto>  aws>  instance>choose your instance> connect> SSH> copy the  example key
+
+7.open moba xterm and paste that key hit enter
+
+
+
+Follow Below Steps to Prepare AWS Instance
+
+
+3. download .pem key to  the desired location
+4. connect using mobaXterm (move to the root directory where you have saved .pem key) 
+
+**************************************************************************
+STEP: 2 DOCKER INSTALLTION ON UBUNTU OS
+**************************************************************************
+
+> sudo apt-get update
+> sudo apt-get install ca-certificates curl gnupg lsb-release
+> sudo mkdir -p /etc/apt/keyrings
+> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+> echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+> sudo apt-get update
+> sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+
+----TO VERIFY THE DOCKER VERSION-------
+
+> sudo docker -v
+		output: Docker version 20.10.18, build b40c2f6
+
+> sudo docker --version
+
+> sudo docker info
+
+
+----TO LIST DOCKER CONTAINERS-------
+
+> sudo docker container ls
+
+-----To List The Docker Image-------
+
+> sudo docker images
+
+
+----TO CHECK DOCKER VOLUME----------
+> sudo docker volume ls
+
+******************************************************
+STEP:3   PULL DOCKER IMAGES
+******************************************************
+> sudo docker pull ubuntu
+> sudo docker pull mysql
+
+******************************************************
+STEP: 4 PULL GIT HUB IMAGES
+******************************************************
+LINK: https://github.com/Nikunj-Java/docker_master.git
+
+>git clone https://github.com/Nikunj-Java/docker_master.git
+
+>ls (to check available  folders)
+
+>cd docker_master
+
+
+--------let's prepare docker image-------------
+
+> sudo docker build -t myimage . (.is mendatory)
+
+> sudo docker images (to check image is prepared or not?)
+
+-----let's run the image in a docker container---------
+
+> sudo docker run -d --name mycontainer -p 80:80 myimage
+(this command will run myimage on port no 80 and container  name is mycontainer)
+
+>curl localhost
+
+---To Check Running Container
+> sudo  docker container ls
