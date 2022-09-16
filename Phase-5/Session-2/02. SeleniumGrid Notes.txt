@@ -1,0 +1,50 @@
+
+************************************************************************************************
+STEP:1 DOWNLOAD SELENIUM  STANDALONE SERVER FILE
+************************************************************************************************
+link :https://www.selenium.dev/downloads/
+
+download selenium-standalone-server-3.5.0 or 3.5.3.jar file
+
+
+
+************************************************************************************************
+STEP: 2 SET UP HUB
+************************************************************************************************
+
+copy the selenium sever  file to desire directory and open  cmd  and move to that directory
+now execute below commands
+
+>java -jar selenium-server-standalone-3.5.0.jar -role hub
+
+	if port busy change it as below
+>java -jar selenium-server-standalone-3.5.0.jar -role hub -port 4445
+
+
+
+once execution is  ready you will see the message that hub is up and running
+
+copy the ip adress and goto >browser> http://youripaddress/grid/console
+
+************************************************************************************************
+STEP:3 PREPARING NODE
+************************************************************************************************
+
+1. copy the latest googlechrome driver to your below  desired location
+your_google_chrome_driver_path =  C:\Program Files\Google\Chrome\Application\chromedriver.exe
+
+2. Open another cmd  and move to the samedirectory where your selenium standalone server file is  located
+
+> java -Dwebdriver.chrome.driver="your_google_chrome_driver_path" -jar selenium-server-standalone-3.5.0.jar -role node -hub  <copy the registration address fromhub>
+
+
+eg:
+ java -Dwebdriver.chrome.driver="C:\Program Files\Google\Chrome\Application\chromedriver.exe" -jar selenium-server-standalone-3.5.0.jar -role node -hub http://192.168.0.105:4445/grid/register/
+
+
+
+lets prepare another node:
+
+java -Dwebdriver.chrome.driver="C:\Program Files\Google\Chrome\Application\chromedriver.exe" -jar selenium-server-standalone-3.5.0.jar -role node -port 4457 -hub http://192.168.0.105:4445/grid/register/
+
+************************************************************************************************
