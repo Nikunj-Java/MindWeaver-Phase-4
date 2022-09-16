@@ -1,0 +1,79 @@
+1.  download jenkins.war file from
+		links: https://www.jenkins.io/download
+		(don't choose windows installer)
+2. move  your jenkins.was file to 
+		C:/ProgramFile
+3.  open cmd  and  move to  C:/ProgramFile
+> cd ..
+> cd ..
+> cd ProgramFiles
+
+4. Check the java Version
+	-if you have java 8 or 11 jenkins will support
+
+> java -jar jenkins.war
+	
+	-else you are working with higher version download java  8  
+> .<path of java 8>\ java -jar jenkins.war
+
+eg: .\Java\jdk1.8.0_202\bin\java -jar jenkins.war
+
+to change the prot
+eg: eg: .\Java\jdk1.8.0_202\bin\java -jar jenkins.war --httpPort=8081
+	 
+
+5.ONCE INSTALLATION IS DONE YOU WILL GET SECREAT ADMIN PASSWORD
+	COPY THAT PASSWORD  AND OPEN BROWSER
+	localhost:8080
+	paste the password in password filed
+	click> NEXT
+
+6. Select Install  Suggested Plugins
+7. Add Personal Details
+
+------------------------------------------------------------------------------------------------
+
+1. MAVEN INTEGRATION
+
+GOTO> MANAGE JENKINS> MANAGE PLUGINS>AVAIALABLE>SEARCH FOR MAVEN INTEGRATION>INSTALL WITHOUT RESTART
+
+
+2. JAVA AND MAVEN INTEGRATION
+
+GOTO> MANAGE JENKINS> GLOBAL TOOL CONFIGURATION
+
+JAVA:
+
+name: JAVA_HOME
+path: C:\Program Files\Java\jdk1.8.0_202
+
+
+MAVEN:
+
+name:MAVEN
+version: choose your version of maven from eclips
+goto>eclips>windows>preferences>maven>installation>check your maven version
+
+select that version in jenkins maven version 
+
+save it
+
+
+2.MAVEN PROJECT
+ GOTO> DASHBOARD>CREATE NEW JOB > MAVEN PROJECT >GIVE NAME >CHOOSE MAVEN PROJECT >CLICK OK 
+GIVE DESCRIPTION AND GO TO  BUILD
+
+BUILD:
+copy the path of your selenium project's pom.xml file that you want to integrate with jenkins
+
+
+RootPOM:
+D:\Workspace-phase5\TestNGProject_wipro\pom.xml
+
+Goals  and Option: 
+clean test
+
+click on save
+
+click on build now
+
