@@ -1,0 +1,12 @@
+************************************************************************************************
+STEP: 1  AWS UBUNTU INSTANCE
+************************************************************************************************
+
+
+Follow Below Steps to Prepare AWS Instance
+
+1. prepare Ubuntuserver 22.04 LTS(HVM) SSD volumetype instance
+2. customprotocol for port : 8080
+3. download .pem key to  the desired location
+4. connect using mobaXterm (move to the root directory where you have saved .pem key) 
+
