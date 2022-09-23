@@ -1,0 +1,37 @@
+1. prepare AWS Instance
+2. Security: Add port no 8080 with custom TCP rule
+3. Download .pem key and connect using moba x-term
+4. goto>eclips > choose your app>(App buil on JDK 8) right click on it and run as maven clean and maven install and maven build
+
+goto> target folder and copy
+
+
+ApplicationName-SNAPSHOT-0.0.1.Jar file and drag it to the mobax-term  left side of window
+
+then we can execute below commands
+
+*******************************************
+Installing JAVA 8
+*******************************************
+
+>  sudo apt-get install openjdk-8-jdk
+
+*******************************************
+Installing MAVEN
+*******************************************
+
+> sudo apt install maven
+
+
+*********************************************
+RUN THE APP
+*********************************************
+
+> java -jar DockerApp-0.0.1-SNAPSHOT.jar
+
+
+goto >AWS instance>PublicIp
+
+copy the public ip and goto the browser and type
+
+PUBLICIP:8080
