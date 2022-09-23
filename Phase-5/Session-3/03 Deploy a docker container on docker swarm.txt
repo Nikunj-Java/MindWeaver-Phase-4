@@ -1,0 +1,34 @@
+******************************************************
+DEPLOY A DOCKER CONTAINER ON DOCKER SWARM
+******************************************************
+
+we have already prepared one image 'myimage' pulled from git hub and pushed to  docker hub
+continue....
+------------------------------------------------------
+docker swarm: managing multiple containers runing on different host
+where we will initiate a swarm that node will become leader (master) and another  can join this node and you can use this as worker
+------------------------------------------------------
+
+to  set the permission 
+
+> sudo chmod 666 /var/run/docker.sock
+
+STEP: 1 initiate docker sawrm
+
+> docker swarm init (machine will become the leader node)
+
+
+STEP:2 create a service in this docker swarm
+	> docker service create -p 80:80 --name myservice myimage
+	> curl localhost (you will see index.php file of docker_master)
+
+also you can copy your aws ubuntu instance public ip add:80 on browser
+
+
+STEP:3 scale the docker container on docker swarm
+	> docker service ps myservice (name of your service)
+
+------to scale the service--------------
+	> docker service scale myservice=3
+	> docker service ls
+	> docker service ps myservice

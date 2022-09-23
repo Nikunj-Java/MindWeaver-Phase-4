@@ -1,0 +1,49 @@
+STEP:1 CREATE DOCKER HUB ACCOUNT
+**********************************************
+ 1. LINK: https://hub.docker.com/
+ 2. SIGN IN USING YOUR CREDENTIALS
+ 3. GOTO>MOBA X-TERM
+***********************************************
+STEP:2 LOGIN USING MOBA X-TERM
+***********************************************
+
+> sudo docker login
+	
+	username:
+	password:
+	(password will not be visible to you)
+	msg: Login Succeded
+if any error like permission denied error
+----------------------------------------------------
+> sudo chmod 666 /var/run/docker.sock
+> sudo docker login
+	username:
+	password:
+	(password will not be visible to you)
+------------------------------------------------------
+
+
+STEP:3 PREPARE DOCKER IMAGE (FROM GIT HUB)
+
+LINK: https://github.com/Nikunj-Java/docker_master.git
+
+> git  clone https://github.com/Nikunj-Java/docker_master.git
+
+> ls (to check available folders)
+
+>  cd docker_master
+
+-----let's prepare docker image-----------
+
+> sudo docker build -t myimage .(.is mendatory)
+> sudo docker image (to check the image is prepared or not)
+
+------now go back to the root directory----------- 
+> cd ..
+
+*********************************************************************
+STEP: 3 PUSH AN IMAGE TO DOCKER HUB
+*********************************************************************
+
+> sudo docker tag myimage nikunj0510/latestimage1
+> sudo docker push nikunj0510/latestimage1
