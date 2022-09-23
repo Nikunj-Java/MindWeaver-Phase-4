@@ -1,0 +1,126 @@
+******************************************************
+JENKINS WITH DOCKER
+**********************************
+
+
+STEP:1 CREATE AWSUBUNTU INSTANCE WITH port no: 8080
+
+STEP:2 INSTALL DOCKER
+
+STEP:3 INSTALL JDK
+
+STEP:4 INSTALL MAVEN
+
+STEP:5 INSTALL JENKINS
+
+**************************************************************************
+STEP: 1  AWS UBUNTU INSTANCE
+**************************************************************************
+link to download moba x-term: https://mobaxterm.mobatek.net/
+
+
+**************************************************************************
+1. CONNECT LLOCALMACHINE TO AWS EC2 INSTANCE
+**************************************************************************
+
+1. Goto> LAB
+2. Prpare AWS Instance with Required Configurations> Download The Key Value pair and save it to some desire directory
+
+	1. prepare Ubuntuserver 22.04 LTS(HVM) SSD volumetype instance
+	2. customprotocol for port : 8080
+
+3. to  connect AWS EC2 Instance with your local machine you need todownload Moba x-term
+4. link: https://mobaxterm.mobatek.net/
+
+5. open moba x-term  and move to  the root directory where you have saved  .pem file
+
+
+6.  goto>  aws>  instance>choose your instance> connect> SSH> copy the  example key
+
+7.open moba xterm and paste that key hit enter
+
+
+
+Follow Below Steps to Prepare AWS Instance
+
+
+3. download .pem key to  the desired location
+4. connect using mobaXterm (move to the root directory where you have saved .pem key) 
+
+**************************************************************************
+STEP: 2 DOCKER INSTALLTION ON UBUNTU OS
+**************************************************************************
+
+> sudo apt-get update
+> sudo apt-get install ca-certificates curl gnupg lsb-release
+> sudo mkdir -p /etc/apt/keyrings
+> curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+> echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+
+
+> sudo apt-get update
+> sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+
+----TO VERIFY THE DOCKER VERSION-------
+
+> sudo docker -v
+
+
+---------------------------------------------------------------------------------------------------------------
+STEP:2   INSTALL JDK
+---------------------------------------------------------------------------------------------------------------
+	> sudo apt-get update
+	> sudo apt install default-jdk -y
+
+---------------------------------------------------------------------------------------------------------------
+STEP:3 	INSTALL MAVEN
+---------------------------------------------------------------------------------------------------------------
+	> sudo apt install maven -y
+
+---------------------------------------------------------------------------------------------------------------
+STEP:4 JENKINS INSTALLATION AND START JENKINS SERVICE
+---------------------------------------------------------------------------------------------------------------
+goto> google > how to download jenkins in ubuntu
+	link:https://www.jenkins.io/doc/book/installing/linux/
+
+>curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+>echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+>sudo apt-get update
+>sudo apt-get install jenkins
+
+
+
+--------------start  jenkins-----------------
+	> sudo service jenkins start
+	> sudo service jenkins status
+
+now goto >AWS>INSTANCE>YOURINSTANCE>publicIpAddress
+
+copy public_ip_address:8080 on browser
+
+--------to generate secreat password------------
+> sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+> sudo chmod 777 /var/run/docker.sock
+
+copy the secret pasword and paste it to jenkins
+***************************************************************************************************************
+1. click on install suggested plugins
+2. provide your credentials
+3. welcome to jenkins
+4. goto>dashboard>create>new job> select freestyleproject> give name> click ok
+5. give description
+6. sourcecode management
+	GIT:
+	url: https://github.com/Nikunj-Java/docker_master.git
+	Branches to build:  */master
+7. Build Trigger:
+	POLL SCM:
+	H/2 * * * *
+8. click on apply and save
+
+9. BUILD the project
+
+Now you CI is done( Continuos integration)
+
+once you will change any file on github relared to docker_hub app jenkins will automatically build the app and give you the result on console output
